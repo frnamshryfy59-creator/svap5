@@ -1,0 +1,157 @@
+/* =====================================================================
+   فایل: style.css
+   توضیح: استایل مشترک همه صفحات سایت روستای چای‌باغ
+===================================================================== */
+
+:root {
+  --primary: #2d5a3d;
+  --primary-dark: #1e3d29;
+  --accent: #c9a15a;
+  --bg: #f7f5f0;
+  --text: #2b2b2b;
+  --card: #ffffff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  position: relative;
+  overflow-x: hidden;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { scroll-margin-top: 90px; }
+
+.leaf-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.leaf {
+  position: absolute;
+  top: -30px;
+  font-size: 16px;
+  opacity: 0.25;
+  animation: leafFall linear infinite;
+  color: var(--primary);
+  user-select: none;
+}
+@keyframes leafFall {
+  0%   { transform: translateY(-5vh) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.3; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(105vh) translateX(40px) rotate(300deg); opacity: 0; }
+}
+
+header, main, section, footer { position: relative; z-index: 2; }
+
+header.site-header {
+  background: var(--primary); color:#fff; padding: 14px 0;
+  position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.header-inner {
+  display:flex; flex-direction: column; align-items:center; gap:10px; text-align:center;
+}
+.logo { font-size: 20px; white-space:nowrap; }
+.main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap: 6px 18px; }
+.main-nav a {
+  color:#fff; text-decoration:none; font-size:14px; padding:4px 2px;
+  border-bottom: 2px solid transparent; transition: border-color .2s, color .2s;
+}
+.main-nav a:hover, .main-nav a.active { border-color: var(--accent); color: var(--accent); }
+
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color:#fff; text-align:center; padding: 55px 20px;
+}
+.hero h2 { font-size: 26px; margin-bottom: 12px; }
+.hero p { max-width: 600px; margin: 0 auto; opacity: .9; font-size:15px; }
+
+.page-header {
+  background: var(--primary-dark); color:#fff; text-align:center; padding: 35px 20px;
+}
+.page-header h2 { font-size: 24px; }
+.page-header p { opacity:.85; font-size:14px; margin-top:6px; }
+
+.section-title {
+  font-size: 21px; color: var(--primary); margin: 45px 0 18px;
+  border-inline-start: 5px solid var(--accent); padding-inline-start: 12px;
+}
+.section-sub { color:#666; font-size:14px; margin-top:-10px; margin-bottom:18px; }
+
+.grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px; }
+.card {
+  background: var(--card); border-radius:10px; padding:20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.card h3 { color: var(--primary-dark); margin-bottom:8px; }
+.badge {
+  display:inline-block; background: var(--accent); color:#fff; font-size:11px;
+  padding:3px 10px; border-radius:20px; margin-bottom:8px;
+}
+.meta-tags span {
+  background:#eef3ee; color: var(--primary-dark); font-size:12px;
+  padding:3px 9px; border-radius:20px; margin-inline-end:5px; display:inline-block; margin-bottom:5px;
+}
+.heritage { background: var(--accent) !important; color:#fff !important; }
+
+.info-box { background:var(--card); padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.distances-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:12px; margin-top:14px; }
+.distance-item { background:var(--card); padding:14px; border-radius:8px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+.distance-item strong { display:block; color:var(--primary); font-size:17px; }
+
+.acc-card { display:flex; flex-direction:column; gap:8px; overflow:hidden; padding:0; }
+.acc-card img { width:100%; height:170px; object-fit:cover; }
+.acc-card .acc-body { padding:16px; display:flex; flex-direction:column; gap:8px; }
+.acc-price { color: var(--accent); font-weight:bold; font-size:15px; }
+.acc-capacity { color:#666; font-size:13px; }
+.btn {
+  background: var(--primary); color:#fff; border:none; padding:9px 16px;
+  border-radius:6px; cursor:pointer; font-family:inherit; font-size:14px; align-self:flex-start;
+}
+.btn:hover { background: var(--primary-dark); }
+
+.reservation-box {
+  background: var(--card); border-radius:12px; padding:24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08); max-width:560px; margin:0 auto;
+}
+.form-group { margin-bottom:14px; }
+.form-group label { display:block; font-size:13px; margin-bottom:5px; color:var(--primary-dark); }
+.form-group input, .form-group select {
+  width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-family:inherit; font-size:14px;
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.submit-btn {
+  width:100%; background: var(--primary); color:#fff; border:none; padding:12px;
+  border-radius:6px; font-size:15px; cursor:pointer; margin-top:6px;
+}
+.submit-btn:hover { background: var(--primary-dark); }
+.submit-btn:disabled { background:#999; cursor:not-allowed; }
+.form-msg { padding:12px; border-radius:6px; margin-top:14px; font-size:14px; display:none; }
+.form-msg.ok { background:#e3f3e6; color:var(--primary-dark); display:block; }
+.form-msg.err { background:#fbe4e4; color:#8a2b2b; display:block; }
+
+.gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap:14px; }
+.gallery-item {
+  background: var(--card); border-radius:10px; overflow:hidden; text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.gallery-item img { width:100%; height:150px; object-fit:cover; display:block; }
+.gallery-item .caption { padding:10px; font-size:13px; color:var(--primary-dark); }
+.gallery-item .cat-badge { font-size:11px; color:var(--accent); }
+.placeholder-box { text-align:center; color:#999; padding:30px; grid-column:1/-1; }
+
+.news-item { background:var(--card); padding:18px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.06); margin-bottom:14px; }
+.news-date { color: var(--accent); font-size:13px; margin-bottom:5px; }
+
+footer.site-footer { background: var(--primary-dark); color:#fff; text-align:center; padding:26px 0; margin-top:60px; font-size:14px; }
+.footer-note { opacity:.7; font-size:12px; margin-top:5px; }
+
+@media (max-width:640px) {
+  .form-row { grid-template-columns:1fr; }
+  .hero h2 { font-size:21px; }
+}
